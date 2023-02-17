@@ -6,3 +6,17 @@ body {
 h1 {
     text-align: center;
 }
+
+.scatter {
+    display: flex;
+    
+}
+
+.selection {
+    align-self: center;
+}
+
+.circle:hover {
+    
+    fill: green
+}
