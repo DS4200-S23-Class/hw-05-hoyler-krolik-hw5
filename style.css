@@ -16,7 +16,34 @@ h1 {
     align-self: center;
 }
 
-.circle:hover {
+.scatter-point {
+    fill: rgb(43, 183, 230);
+    position: relative;
+}
+
+.scatter-point:hover {
     
-    fill: green
+    fill: green;
+}
+
+.border-point {
+    stroke-width: 3px;
+    stroke: red;
+}
+
+.bar {
+    display: flex;
+    fill: blue;
+    flex-direction: row;
+}
+
+.bar:hover {
+    fill: orange;
+}
+
+.tooltip2{
+    position: absolute;
+    background-color: gray;
+    border: solid;
+    padding: 5px;
 }
