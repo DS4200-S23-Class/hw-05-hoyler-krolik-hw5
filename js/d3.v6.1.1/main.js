@@ -1,44 +1,46 @@
 
-
+// Create the Frame dimensions
 const FRAME_HEIGHT = 500;
 const FRAME_WIDTH = 500;
 const MARGINS = {left: 50, right: 50, top: 50, bottom: 50};
 
-
+// Add Scatter frame as svg
 const SCATTER_FRAME = d3.select('.chart')
                     .append("svg")
                     .attr("height", FRAME_HEIGHT)
                     .attr("width", FRAME_WIDTH)
                     .attr("class", "frame");
 
+// Add a last-point div to the selection class
 const SELECT_FRAME = d3.select('.selection')
                         .append("div")
                         .attr("class", "last-point");
 
-// with scale function
+// creat scatter dimensions
 const SCATTER_HEIGHT = FRAME_HEIGHT - MARGINS.top - MARGINS.bottom;
 const SCATTER_WIDTH = FRAME_WIDTH - MARGINS.left - MARGINS.right;
 
-// Reading from file
+// Reading from fileand appending points
 d3.csv("data/scatter-data.csv").then((data) => {
 
+    // Getting max X and Y coords
     const MAX_X = 1 + d3.max(data, (d) => 
                                 {return parseInt(d.x)});
     
     const MAX_Y = 1 + d3.max(data, (d) => 
                                 {return parseInt(d.y)});
-    
+    // X coord scale function
     const X_SCALE = d3.scaleLinear()
                             .domain([0, (MAX_X)])
                             .range([0, SCATTER_WIDTH]);
     
-
+    // Y coord scale function
     const Y_SCALE = d3.scaleLinear()
                         .domain([0, (MAX_Y)])
                         .range([SCATTER_HEIGHT, 0]);
 
 
-    // plot
+    // plot the scatter points
     SCATTER_FRAME.selectAll("circle")
             .data(data)
             .enter()
@@ -48,12 +50,15 @@ d3.csv("data/scatter-data.csv").then((data) => {
                 .attr("r", 10)
                 .attr("class", "scatter-point");
 
+    // plot the bottom and side axis
+
     SCATTER_FRAME.append("g")
         .attr("transform", "translate(" + MARGINS.top + "," + 
         (SCATTER_HEIGHT + MARGINS.top) + ")")
         .call(d3.axisBottom(X_SCALE).ticks(10))
             .attr("font-size", "15px");
     
+
     SCATTER_FRAME.append("g")
         .attr("transform", "translate(" + 
         (MARGINS.left) + "," + (MARGINS.top) + ")")
@@ -61,7 +66,7 @@ d3.csv("data/scatter-data.csv").then((data) => {
             .attr("font-size", "15px");
 
 
-
+    // function to add point to the scatter
     function addPoint(event, d) {
 
         let new_x = d3.selectAll("#x-cord").node().value;
@@ -75,11 +80,11 @@ d3.csv("data/scatter-data.csv").then((data) => {
                         .on("click", pointClickHandler);
     }
     
-
+    // event listener for button on click
     const BUTTON = d3.selectAll(".add-point").on("click", addPoint);
     
+    // function for adding last point text
     function pointText(pointReference) {
-        console.log("hello1")
         let x_point = d3.select(pointReference).attr("cx");
         let y_point = d3.select(pointReference).attr("cy");
         
@@ -90,17 +95,19 @@ d3.csv("data/scatter-data.csv").then((data) => {
         
         }
 
+    // function for adding border to scatter points
     function addBorder(pointReference) {
-        console.log("hello2")
         d3.select(pointReference).classed("border-point", !(d3.select(pointReference).classed("border-point")));
         
     }
 
+    // event handler for border and last point text
     function pointClickHandler() {
         addBorder(this)
         pointText(this)
     }
 
+    // event listener for clicking the scatter points
     const SCATTER_CLICK = d3.selectAll(".scatter-point");
     SCATTER_CLICK.on("click", pointClickHandler)
     
@@ -123,7 +130,7 @@ const BAR_WIDTH = FRAME_WIDTH - MARGINS.left - MARGINS.right;
 // read in bar chart data
 d3.csv("data/bar-data.csv").then((data) => {
 
-    console.log((data));
+    // Scaling functions
 
     const xScaleBar = d3.scaleBand().range([0, BAR_WIDTH]).padding(0.2);
     const yScaleBar = d3.scaleLinear().range([BAR_HEIGHT, 0]);

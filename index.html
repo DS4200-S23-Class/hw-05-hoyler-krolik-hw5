@@ -1,81 +1,101 @@
 <!DOCTYPE html>
 <html> 
 
+<!-- Creat head -->
 <head>
 
     <meta charset=utf-8/>
-    
+    <!-- Add style -->
     <link rel="stylesheet" href="style.css">
     
+    <!-- Add title -->
     <title>hw-05</title>
 
+    <!--  add javascript -->
     <script src="js/d3.v6.1.1/d3.min.js"></script>
 
 </head>
 
-
+<!-- Website Body -->
 <body>
 
+    <!-- Header for HW-05 -->
     <h1>hw-05: Interactive Graph with D3</h1>
+
+    <!-- create and label div for charts -->
     <div class='charts'>
 
-        <div class="left-column">
-            
-            <div class="scatter">
+        <!-- create and label div for scatter plot and adding points -->
+        <div class="scatter">
+            <!-- Div for the scatter plot graph to go -->
+            <div class="chart">                        
+            </div>
 
-                <div class="chart">                        
-                </div>
+            <!-- Div for adding points -->
+            <div class="selection">
                 
-                <div class="selection">
-                    <h4>Select Coordinates to Plot:</h4>
-                    <form >  
-                        <label> Select X coordinate </label>  
-                        <select id="x-cord">  
-                        <option value = "1"> 1 </option>  
-                        <option value = "2"> 2 </option>  
-                        <option value = "3"> 3 </option> 
-                        <option value = "4"> 4 </option>
-                        <option value = "5"> 5 </option>
-                        <option value = "6"> 6 </option>
-                        <option value = "7"> 7 </option>
-                        <option value = "8"> 8 </option>
-                        <option value = "9"> 9 </option>
-                        <option value = "10"> 10 </option>
-                        </select>   
-                    </form>
-                    <br>
-                    <form>  
-                        <label> Select Y coordinate </label>  
-                        <select id="y-cord">  
-                        <option value = "1"> 1 </option>  
-                        <option value = "2"> 2 </option>  
-                        <option value = "3"> 3 </option> 
-                        <option value = "4"> 4 </option>
-                        <option value = "5"> 5 </option>
-                        <option value = "6"> 6 </option>
-                        <option value = "7"> 7 </option>
-                        <option value = "8"> 8 </option>
-                        <option value = "9"> 9 </option>
-                        <option value = "10"> 10 </option>
-                        </select>   
-                    </form> 
-                    <br>
-                    <button type="button" class="add-point">Add Point</button>
+                <h4>Select Coordinates to Plot:</h4>
+                <form > 
+                    <!-- Create selection options for x-coordinate -->
+                    <label> Select X coordinate </label>  
+                    <select id="x-cord">  
+                    <option value = "1"> 1 </option>  
+                    <option value = "2"> 2 </option>  
+                    <option value = "3"> 3 </option> 
+                    <option value = "4"> 4 </option>
+                    <option value = "5"> 5 </option>
+                    <option value = "6"> 6 </option>
+                    <option value = "7"> 7 </option>
+                    <option value = "8"> 8 </option>
+                    <option value = "9"> 9 </option>
+                    <option value = "10"> 10 </option>
+                    </select>   
+                </form>
+                <!-- Break in page between forms -->
+                <br>
+                <form>  
+                    <!-- Create selection options for y-coordinate -->
+                    <label> Select Y coordinate </label>  
+                    <select id="y-cord">  
+                    <option value = "1"> 1 </option>  
+                    <option value = "2"> 2 </option>  
+                    <option value = "3"> 3 </option> 
+                    <option value = "4"> 4 </option>
+                    <option value = "5"> 5 </option>
+                    <option value = "6"> 6 </option>
+                    <option value = "7"> 7 </option>
+                    <option value = "8"> 8 </option>
+                    <option value = "9"> 9 </option>
+                    <option value = "10"> 10 </option>
+                    </select>   
+                </form> 
+                <!-- Break in page between forms and button-->
+                <br>
+                <!-- Create button for point selection -->
+                <button type="button" class="add-point">Add Point</button>
                 </div>
-            </div>
+        </div>
             
-            <div class="bar-chart">
-
-            </div>
+                
+        <div class="bar-chart">
 
         </div>
 
-        <div class="right-column">
-            
-            
-            
+    </div>
+
+    <div>
+        <!-- Acknowledgements -->
+        <h5>Acknowledgments</h5>
+        <div>
+            <ul>
+                <li><a href="https://www.w3schools.com/graphics/svg_intro.asp">Resource 1</a></li>
+                <li><a href="https://learn-the-web.algonquindesign.ca/topics/advanced-svg/">Resource 2</a></li>
+                <li><a href="https://forum.freecodecamp.org/t/appended-element-is-visible-in-document-but-not-visible-visually/276141">Resource 3</a></li>
+            </ul>
         </div>
     </div>
+
+<!-- connect webpage to Javascript file -->
 <script src="js/d3.v6.1.1/main.js"></script>
 </body>
 

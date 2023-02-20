@@ -1,46 +1,69 @@
+/* change font of webpage to Ariel */
+
 body {
 
     font-family: Arial;
 }
 
+/* center header 1 */
 h1 {
     text-align: center;
 }
 
+/* center header 5 */
+h5 {
+    text-align: center;
+}
+
+/* format scatter div */
 .scatter {
     display: flex;
-    
 }
 
+/* format chart div */
+.chart {
+    width: 60%;
+}
+
+/* format selection div */
 .selection {
     align-self: center;
+    width: 40%;
+
 }
 
+/* scatter points color */
 .scatter-point {
     fill: rgb(43, 183, 230);
     position: relative;
 }
 
+/* scatter points hover color */
 .scatter-point:hover {
     
     fill: green;
 }
 
+/* scatter border point color */
 .border-point {
     stroke-width: 3px;
     stroke: red;
 }
 
+
+/* format bar graph  */
 .bar {
     display: flex;
     fill: blue;
     flex-direction: row;
 }
 
+/* bar graph hover color */
 .bar:hover {
     fill: orange;
 }
 
+/* format bar graph tooltip2 */
 .tooltip2{
     position: absolute;
     background-color: gray;
