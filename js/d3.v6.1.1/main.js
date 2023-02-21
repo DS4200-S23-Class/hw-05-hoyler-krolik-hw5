@@ -91,7 +91,7 @@ d3.csv("data/scatter-data.csv").then((data) => {
         x_point = Math.round(X_SCALE.invert(x_point - MARGINS.left));
         y_point = Math.round(Y_SCALE.invert(y_point - MARGINS.top));
         
-        SELECT_FRAME.html("<br>Last Point Click: " + "(" + x_point + "," + y_point + ")")
+        SELECT_FRAME.html("<br>Last Point Click: " + "(" + x_point + "," + y_point + ")");
         
         }
 
@@ -109,7 +109,7 @@ d3.csv("data/scatter-data.csv").then((data) => {
 
     // event listener for clicking the scatter points
     const SCATTER_CLICK = d3.selectAll(".scatter-point");
-    SCATTER_CLICK.on("click", pointClickHandler)
+    SCATTER_CLICK.on("click", pointClickHandler);
     
     
 });
@@ -140,7 +140,7 @@ d3.csv("data/bar-data.csv").then((data) => {
     }));
     yScaleBar.domain([0, d3.max(data, (d) => {
         return d.amount
-    })])
+    })]);
 
     FRAME2.selectAll("bars")
         .data(data)
