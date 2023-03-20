@@ -131,7 +131,7 @@ const BAR_WIDTH = FRAME_WIDTH - MARGINS.left - MARGINS.right;
 d3.csv("data/bar-data.csv").then((data) => {
 
     // Scaling functions
-
+    
     const xScaleBar = d3.scaleBand().range([0, BAR_WIDTH]).padding(0.2);
     const yScaleBar = d3.scaleLinear().range([BAR_HEIGHT, 0]);
 
